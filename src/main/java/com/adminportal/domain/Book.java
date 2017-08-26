@@ -3,10 +3,7 @@ package com.adminportal.domain;
 import lombok.Data;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 import static javax.persistence.GenerationType.AUTO;
 
@@ -33,5 +30,6 @@ public class Book {
     private String description;
     private int inStockNumber;
 
+    @Transient
     private MultipartFile bookImage;
 }
