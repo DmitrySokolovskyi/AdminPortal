@@ -15,7 +15,7 @@ public class Book {
     private String title;
     private String author;
     private String publisher;
-    private String getPublisherDate;
+    private String publicationDate;
     private String language;
     private String category;
     private int numberOfPages;
@@ -24,9 +24,9 @@ public class Book {
     private double shippingWeight;
     private double listPrice;
     private double ourPrice;
-    private boolean active = true;
+    private boolean active=true;
 
-    @Column(columnDefinition = "text")
+    @Column(columnDefinition="text")
     private String description;
     private int inStockNumber;
 

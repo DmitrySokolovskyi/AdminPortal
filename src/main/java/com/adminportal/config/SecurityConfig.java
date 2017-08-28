@@ -1,6 +1,6 @@
 package com.adminportal.config;
 
-import com.adminportal.service.UserSecurityService;
+import com.adminportal.service.impl.UserSecurityService;
 import com.adminportal.util.SecurityUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package com.adminportal.service;
+package com.adminportal.service.impl;
 
 import com.adminportal.domain.User;
 import com.adminportal.repository.UserRepository;
