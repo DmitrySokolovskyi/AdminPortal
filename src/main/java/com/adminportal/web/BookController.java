@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
@@ -47,6 +48,13 @@ public class BookController {
             e.printStackTrace();
         }
         return "redirect:bookList";
+    }
+
+    @RequestMapping("/bookInfo")
+    public String bookInfo(@RequestParam("id") Long id, Model model) {
+        Book book = bookService.findOne(id);
+        model.addAttribute("book", book);
+        return "bookInfo";
     }
 
     @RequestMapping("/bookList")

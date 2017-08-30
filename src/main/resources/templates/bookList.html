@@ -1,9 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
 <head th:replace="common/header :: common-header" />
 
 <body>
 <div th:replace="common/header :: navbar" />
+
 <div class="container">
     <div class="table-responsive">
         <table id="bookListTable" class="table table-bordered table-hover table-striped">
@@ -20,8 +22,8 @@
             </thead>
             <tbody>
             <tr data-th-each="book : ${bookList}">
-                <!--<td><input hidden="hidden" name="id" th:value="${book.id}"/></td>-->
-                <td th:text="${book.title}"></td>
+                <!-- <td><input hidden="hidden" name="id" th:value="${book.id}" /></td> -->
+                <td><a th:href="@{/book/bookInfo(id=${book.id})}"><span th:text="${book.title}"></span></a></td>
                 <td th:text="${book.author}"></td>
                 <td th:text="${book.category}"></td>
                 <td th:text="${book.listPrice}"></td>
@@ -33,6 +35,7 @@
         </table>
     </div>
 </div>
+
 <div th:replace="common/header :: body-bottom-scripts" />
 </body>
 </html>

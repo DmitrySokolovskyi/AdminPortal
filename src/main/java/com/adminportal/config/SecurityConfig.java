@@ -15,7 +15,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled=true)
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -42,14 +42,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests().
-		/*	antMatchers("/**").*/
+        /*	antMatchers("/**").*/
                 antMatchers(PUBLIC_MATCHERS).
                 permitAll().anyRequest().authenticated();
 
         http
                 .csrf().disable().cors().disable()
                 .formLogin().failureUrl("/login?error")
-			    .defaultSuccessUrl("/")
+                .defaultSuccessUrl("/")
                 .loginPage("/login").permitAll()
                 .and()
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
