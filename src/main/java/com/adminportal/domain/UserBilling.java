@@ -1,13 +1,18 @@
 package com.adminportal.domain;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.GenerationType.AUTO;
 
-@Entity @Data
+@Entity
+@Setter @Getter
 public class UserBilling {
 
     @Id @GeneratedValue(strategy = AUTO)

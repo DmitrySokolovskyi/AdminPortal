@@ -9,7 +9,7 @@ import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.GenerationType.AUTO;
 
 @Entity
-@Setter @Getter
+@Getter @Setter
 public class UserPayment {
 
     @Id @GeneratedValue(strategy = AUTO)

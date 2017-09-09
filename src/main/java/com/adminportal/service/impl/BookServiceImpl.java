@@ -28,4 +28,9 @@ public class BookServiceImpl implements BookService{
     public Book findOne(Long id) {
         return bookRepository.findOne(id);
     }
+
+    @Override
+    public void removeOne(long id) {
+        bookRepository.delete(id);
+    }
 }

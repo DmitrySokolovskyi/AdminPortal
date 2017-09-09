@@ -1,14 +1,14 @@
 package com.adminportal.domain;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 import static javax.persistence.GenerationType.AUTO;
 
 @Entity
-@Setter @Getter
+@Data @NoArgsConstructor
 public class UserShipping {
 
     @Id @GeneratedValue(strategy = AUTO)
@@ -20,7 +20,7 @@ public class UserShipping {
     private String userShippingState;
     private String userShippingCountry;
     private String userShippingZipcode;
-    private boolean userShippingDefault;
+
 
     @ManyToOne
     @JoinColumn(name = "user_id")

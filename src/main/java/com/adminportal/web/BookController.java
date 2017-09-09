@@ -19,8 +19,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
-import static org.springframework.web.bind.annotation.RequestMethod.POST;
-
 @Controller
 @RequestMapping("/book")
 public class BookController {
@@ -35,7 +33,7 @@ public class BookController {
         return "addBook";
     }
 
-    @RequestMapping(value = "/add", method = POST)
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addBookPost(@ModelAttribute("book") Book book, HttpServletRequest request) {
         bookService.save(book);
 
@@ -71,7 +69,7 @@ public class BookController {
         return "updateBook";
     }
 
-    @RequestMapping(value = "/updateBook", method = POST)
+    @RequestMapping(value = "/updateBook", method = RequestMethod.POST)
     public String updateBookPost(@ModelAttribute("book") Book book, HttpServletRequest request) {
         bookService.save(book);
 
@@ -92,6 +90,7 @@ public class BookController {
                 e.printStackTrace();
             }
         }
+
         return "redirect:/book/bookInfo?id=" + book.getId();
     }
 
@@ -101,5 +100,16 @@ public class BookController {
         model.addAttribute("bookList", bookList);
         return "bookList";
 
+    }
+
+    @RequestMapping(value = "/remove", method = RequestMethod.POST)
+    public String remove(
+            @ModelAttribute("id") String id, Model model
+    ) {
+        bookService.removeOne(Long.parseLong(id.substring(8)));
+        List<Book> bookList = bookService.findAll();
+        model.addAttribute("bookList", bookList);
+
+        return "redirect:/book/bookList";
     }
 }
