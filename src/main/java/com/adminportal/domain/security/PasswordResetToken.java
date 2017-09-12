@@ -2,6 +2,7 @@ package com.adminportal.domain.security;
 
 import com.adminportal.domain.User;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Calendar;
@@ -11,6 +12,7 @@ import static javax.persistence.FetchType.EAGER;
 import static javax.persistence.GenerationType.AUTO;
 
 @Entity @Data
+@NoArgsConstructor
 public class PasswordResetToken {
 
     private static final int EXPIRATION = 60 * 24;
@@ -26,12 +28,8 @@ public class PasswordResetToken {
 
     private Date expiryDate;
 
-    public PasswordResetToken() {
-    }
-
     public PasswordResetToken(final String token, final User user) {
         super();
-
         this.token = token;
         this.user = user;
         this.expiryDate = calculateExpiryDate(EXPIRATION);

@@ -1,6 +1,7 @@
 package com.adminportal.domain.security;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -10,6 +11,7 @@ import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.FetchType.LAZY;
 
 @Entity @Data
+@NoArgsConstructor
 public class Role {
 
     @Id
@@ -18,7 +20,4 @@ public class Role {
 
     @OneToMany(mappedBy = "role", cascade = ALL, fetch = LAZY)
     private Set<UserRole> userRoles = new HashSet<>();
-
-    public Role() {
-    }
 }

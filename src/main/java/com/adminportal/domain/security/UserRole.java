@@ -1,12 +1,16 @@
 package com.adminportal.domain.security;
 
 import com.adminportal.domain.User;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 import static javax.persistence.GenerationType.AUTO;
 
-@Entity
+@Entity @Getter @Setter
+@NoArgsConstructor
 @Table(name = "user_role")
 public class UserRole {
 
@@ -21,35 +25,8 @@ public class UserRole {
     @JoinColumn(name = "role_id")
     private Role role;
 
-    public UserRole() {
-    }
-
     public UserRole(User user, Role role) {
         this.user = user;
-        this.role = role;
-    }
-
-    public Long getUserRoleId() {
-        return userRoleId;
-    }
-
-    public void setUserRoleId(Long userRoleId) {
-        this.userRoleId = userRoleId;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
         this.role = role;
     }
 }
